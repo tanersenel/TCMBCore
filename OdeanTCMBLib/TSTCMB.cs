@@ -62,7 +62,7 @@ namespace OdeanTCMBLib
             }
             catch (Exception ex)
             {
-                result.Error.Error = true;
+                result.Error.Error = false;
                 result.Error.ErrorMessage = ex.Message;
             }
             return result;
