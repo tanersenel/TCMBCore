@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="OdeanTCMBLib">
-      <HintPath>..\OdeanTCMBLib\bin\Release\netcoreapp3.0\OdeanTCMBLib.dll</HintPath>
+    <Reference Include="OdeonTCMBLib">
+      <HintPath>..\OdeonTCMBLib\bin\Release\netcoreapp3.0\OdeonTCMBLib.dll</HintPath>
     </Reference>
   </ItemGroup>
 
