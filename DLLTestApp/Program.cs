@@ -18,47 +18,62 @@ namespace DLLTestApp
             //filtrelerimizi oluşturuyoruz
             //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
             //CurrencyCode a göre filtreleme
-            //filters.Add(new FilterModel()
-            //{
-            //    FilterColumn = "CurrencyCode",
-            //    FilterValue1 = "USD",
-            //    Condition = Operation.EqualTo
-            //});
+            filters.Add(new FilterModel()
+            {
+                FilterColumn = PropertyNames.CurrencyCode,
+                FilterValue1 = "USD",
+                Condition = Operation.EqualTo,
+                Connector = FilterStatementConnector.Or
+            });
+            //CurrencyCode USD "VEYA" EUR olanları filtreleme
+            filters.Add(new FilterModel()
+            {
+                FilterColumn = PropertyNames.CurrencyCode,
+                FilterValue1 = "EUR",
+                Condition = Operation.EqualTo,
+                Connector = FilterStatementConnector.And
+            });
 
-            //Alış Fiyatına göre filtre ekleme
+            //Alış Fiyatına göre 5.0 ile 15.0 arasında olanları filtreleme
             filters.Add(new FilterModel()
             {
-                FilterColumn = "ForexBuying",
+                FilterColumn = PropertyNames.ForexBuying,
                 FilterValue1 = 5.0,
-                FilterValue2 = 15.0,
-                Condition = Operation.Between
+                FilterValue2 = 10.0,
+                Condition = Operation.Between,
+                Connector = FilterStatementConnector.And
             });
-            //Satış Fiyatına göre filtre ekleme
+            //Satış Fiyatına değeri 7.0 dan büyük olanları filtreleme
             filters.Add(new FilterModel()
             {
-                FilterColumn = "ForexSelling",
-                FilterValue1 = 5.0,
-                FilterValue2 = 15.0,
-                Condition = Operation.Between
+                FilterColumn = PropertyNames.ForexSelling,
+                FilterValue1 = 7.0,
+                Condition = Operation.GreaterThan,
+                Connector = FilterStatementConnector.And
             });
+            var sorting = new SortingModel()
+            {
+                SortingColumn = PropertyNames.CurrencyCode,
+                SortingType = SortingTypes.ASC
+            };
 
             //kütüphanemize sorguyu gönderiyoruz.
-            var response = lib.GetTodayExhangeRate(sortingColumn: SortingDataTypes.CurrencyCode, sortingType: SortingTypes.ASC, filters);
+            //4 farklı tipte data response içerisinde yer alır.
+            var response = lib.GetTodayExhangeRate(sorting, filters);
 
             if (response.Error.Error)
             {
-                //hata oluştuysa veya authorization kontrolünü geçemediyse hata döner
                 Console.WriteLine(response.Error.ErrorMessage);
             }
             else
             {
-                //4 farklı tipte data response içerisinde yer alır.
                 var obj = response.ObjectResult;
                 var xml = response.XmlResult;
                 var json = response.JsonResult;
                 var csv = response.CsvResult;
-                Console.Write(json);
             }
+
+
             Console.Read();
 
         }
