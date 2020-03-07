@@ -1,9 +1,9 @@
 ﻿
 using ExpressionBuilder.Common;
 using System;
-using static OdeanTCMBLib.Enums.Types;
+using static OdeonTCMBLib.Enums.Types;
 
-namespace OdeanTCMBLib.Models
+namespace OdeonTCMBLib.Models
 {
     public class FilterModel
     {

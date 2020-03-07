@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace OdeanTCMBLib.Models
+namespace OdeonTCMBLib.Models
 {
    
     [XmlRoot(ElementName = "Currency")]

@@ -1,4 +1,4 @@
-﻿namespace OdeanTCMBLib.Models
+﻿namespace OdeonTCMBLib.Models
 {
     public class ErrorModel
     {

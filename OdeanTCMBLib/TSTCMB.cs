@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
-using OdeanTCMBLib.Models;
-using static OdeanTCMBLib.Enums.Types;
+using OdeonTCMBLib.Models;
+using static OdeonTCMBLib.Enums.Types;
 
-namespace OdeanTCMBLib
+namespace OdeonTCMBLib
 {
     public class TSTCMB
     {

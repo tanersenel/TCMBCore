@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OdeanTCMBLib\OdeanTCMBLib.csproj" />
+    <ProjectReference Include="..\OdeanTCMBLib\OdeonTCMBLib.csproj" />
   </ItemGroup>
 
 </Project>

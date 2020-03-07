@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeanTCMBLib", "OdeanTCMBLib\OdeanTCMBLib.csproj", "{B1E53703-23D7-4D46-8A73-3D3480792500}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeonTCMBLib", "OdeanTCMBLib\OdeonTCMBLib.csproj", "{B1E53703-23D7-4D46-8A73-3D3480792500}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeonTCMBApp", "OdeonTCMBApp\OdeonTCMBApp.csproj", "{71F4273B-7928-4DD6-AA1A-94A89AA243AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLTestApp", "DLLTestApp\DLLTestApp.csproj", "{AFF81F2A-CFCF-4699-AAD9-12D3FE945601}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DLLTestApp", "DLLTestApp\DLLTestApp.csproj", "{AFF81F2A-CFCF-4699-AAD9-12D3FE945601}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

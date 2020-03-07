@@ -1,9 +1,9 @@
 ﻿using ExpressionBuilder.Common;
-using OdeanTCMBLib;
+using OdeonTCMBLib;
 using System;
 using System.Collections.Generic;
-using OdeanTCMBLib.Models;
-using static OdeanTCMBLib.Enums.Types;
+using OdeonTCMBLib.Models;
+using static OdeonTCMBLib.Enums.Types;
 
 namespace OdeonTCMBApp
 {

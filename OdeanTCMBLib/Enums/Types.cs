@@ -1,4 +1,4 @@
-﻿namespace OdeanTCMBLib.Enums
+﻿namespace OdeonTCMBLib.Enums
 {
     public class Types
     {
