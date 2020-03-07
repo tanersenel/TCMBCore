@@ -20,7 +20,7 @@ namespace OdeonTCMBApp
             //CurrencyCode a göre filtreleme
             filters.Add(new FilterModel()
             {
-                FilterColumn = FilterPropertyNames.CurrencyCode,
+                FilterColumn = PropertyNames.CurrencyCode,
                 FilterValue1 = "USD",
                 Condition = Operation.EqualTo,
                 Connector = FilterStatementConnector.Or
@@ -28,7 +28,7 @@ namespace OdeonTCMBApp
             //CurrencyCode USD "VEYA" EUR olanları filtreleme
             filters.Add(new FilterModel()
             {
-                FilterColumn = FilterPropertyNames.CurrencyCode,
+                FilterColumn =PropertyNames.CurrencyCode,
                 FilterValue1 = "EUR",
                 Condition = Operation.EqualTo,
                 Connector = FilterStatementConnector.And
@@ -37,24 +37,29 @@ namespace OdeonTCMBApp
             //Alış Fiyatına göre 5.0 ile 15.0 arasında olanları filtreleme
             filters.Add(new FilterModel()
             {
-                FilterColumn = FilterPropertyNames.ForexBuying,
+                FilterColumn = PropertyNames.ForexBuying,
                 FilterValue1 = 5.0,
-                FilterValue2 = 15.0,
+                FilterValue2 = 10.0,
                 Condition = Operation.Between,
                 Connector = FilterStatementConnector.And
             });
-            //Satış Fiyatına değeri 5.0 dan büyük olanları filtreleme
+            //Satış Fiyatına değeri 7.0 dan büyük olanları filtreleme
             filters.Add(new FilterModel()
             {
-                FilterColumn = FilterPropertyNames.ForexSelling,
-                FilterValue1 = 5.0,
+                FilterColumn = PropertyNames.ForexSelling,
+                FilterValue1 = 7.0,
                 Condition = Operation.GreaterThan,
                 Connector = FilterStatementConnector.And
             });
+            var sorting = new SortingModel()
+            {
+                SortingColumn = PropertyNames.CurrencyCode,
+                SortingType = SortingTypes.ASC
+            };
 
             //kütüphanemize sorguyu gönderiyoruz.
             //4 farklı tipte data response içerisinde yer alır.
-            var response = lib.GetTodayExhangeRate(sortingColumn: SortingDataTypes.CurrencyCode, sortingType: SortingTypes.ASC, filters);
+            var response = lib.GetTodayExhangeRate(sorting, filters);
 
             if (response.Error.Error)
             {

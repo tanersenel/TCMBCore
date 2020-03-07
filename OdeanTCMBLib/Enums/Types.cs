@@ -14,13 +14,8 @@
             ASC = 0,
             DESC = 1
         }
-        public enum SortingDataTypes
-        {
-            CurrencyCode = 0,
-            ForexBuying = 1,
-            ForexSelling = 2
-        }
-        public enum FilterPropertyNames
+        
+        public enum PropertyNames
         {
             Unit,
             Isim,

@@ -7,7 +7,7 @@ namespace OdeanTCMBLib.Models
 {
     public class FilterModel
     {
-        public FilterPropertyNames FilterColumn { get; set; }
+        public PropertyNames FilterColumn { get; set; }
         public object FilterValue1 { get; set; }
         public object FilterValue2 { get; set; }
         public Operation Condition { get; set; }

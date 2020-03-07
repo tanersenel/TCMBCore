@@ -22,7 +22,7 @@ namespace OdeanTCMBLib
                 _authKey = authKey;
             }
         }
-        public ResultModel GetTodayExhangeRate(SortingDataTypes sortingColumn, SortingTypes sortingType, List<FilterModel> filters)
+        public ResultModel GetTodayExhangeRate(SortingModel sorting, List<FilterModel> filters)
         {
             ResultModel result = new ResultModel();
             
@@ -38,23 +38,23 @@ namespace OdeanTCMBLib
                 {
                     var xmlStr = client.DownloadString("https://www.tcmb.gov.tr/kurlar/today.xml"); //xmli string olarak downoad ediyoruz.
                     var exchangeRates = Serializer.Deserialize<ExchangeRateModel>(xmlStr); //xml stringi objeye deserialize ediyoruz.
-                    string sortingColumnName = Enum.GetName(typeof(SortingDataTypes), sortingColumn); // filtrelenmesi istenen sütun adını alıyoruz
+                    string sortingColumnName = Enum.GetName(typeof(PropertyNames), sorting.SortingColumn); // filtrelenmesi istenen sütun adını alıyoruz
 
                     //filter expressionları oluşturuyoruz.
                     var filter = new Filter<Currency>();
                     foreach (var filteritem in filters)
                     {
-                        string filterColumName = Enum.GetName(typeof(FilterPropertyNames), filteritem.FilterColumn);
+                        string filterColumName = Enum.GetName(typeof(PropertyNames), filteritem.FilterColumn);
                         filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1, filteritem.FilterValue2, filteritem.Connector);
                     }
                    
                     exchangeRates.Currency = exchangeRates.Currency.Where(filter).ToList();
                     //sıralamayı yapıyoruz.
-                    if (sortingType == SortingTypes.ASC)
+                    if (sorting.SortingType == SortingTypes.ASC)
                     {
                         exchangeRates.Currency = exchangeRates.Currency.OrderBy(x => x.GetType().GetProperty(sortingColumnName).GetValue(x, null)).ToList();
                     }
-                    else if (sortingType == SortingTypes.DESC)
+                    else if (sorting.SortingType == SortingTypes.DESC)
                     {
                         exchangeRates.Currency = exchangeRates.Currency.OrderByDescending(x => x.GetType().GetProperty(sortingColumnName).GetValue(x, null)).ToList();
                     }
