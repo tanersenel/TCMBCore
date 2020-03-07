@@ -25,7 +25,7 @@ namespace DLLTestApp
             //    Condition = Operation.EqualTo
             //});
 
-            //Alış Fiyatına göre filtreleme
+            //Alış Fiyatına göre filtre ekleme
             filters.Add(new FilterModel()
             {
                 FilterColumn = "ForexBuying",
@@ -33,7 +33,7 @@ namespace DLLTestApp
                 FilterValue2 = 15.0,
                 Condition = Operation.Between
             });
-            //Alış Fiyatına göre filtreleme
+            //Satış Fiyatına göre filtre ekleme
             filters.Add(new FilterModel()
             {
                 FilterColumn = "ForexSelling",
@@ -43,24 +43,22 @@ namespace DLLTestApp
             });
 
             //kütüphanemize sorguyu gönderiyoruz.
-            //4 farklı tipte data response içerisinde yer alır.
             var response = lib.GetTodayExhangeRate(sortingColumn: SortingDataTypes.CurrencyCode, sortingType: SortingTypes.ASC, filters);
 
             if (response.Error.Error)
             {
+                //hata oluştuysa veya authorization kontrolünü geçemediyse hata döner
                 Console.WriteLine(response.Error.ErrorMessage);
             }
             else
             {
+                //4 farklı tipte data response içerisinde yer alır.
                 var obj = response.ObjectResult;
                 var xml = response.XmlResult;
                 var json = response.JsonResult;
                 var csv = response.CsvResult;
                 Console.Write(json);
             }
-
-
-
             Console.Read();
 
         }
