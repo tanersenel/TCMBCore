@@ -38,7 +38,7 @@ namespace OdeonTCMBLib
                 {
                     var xmlStr = client.DownloadString("https://www.tcmb.gov.tr/kurlar/today.xml"); //xmli string olarak downoad ediyoruz.
                     var exchangeRates = Serializer.Deserialize<ExchangeRateModel>(xmlStr); //xml stringi objeye deserialize ediyoruz.
-                    string sortingColumnName = Enum.GetName(typeof(PropertyNames), sorting.SortingColumn); // filtrelenmesi istenen sütun adını alıyoruz
+                    string sortingColumnName = Enum.GetName(typeof(PropertyNames), sorting.SortingColumn); // sıralanması istenen sütun adını alıyoruz
 
                     //filter expressionları oluşturuyoruz.
                     var filter = new Filter<Currency>();
