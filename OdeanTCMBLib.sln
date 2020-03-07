@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdeanTCMBLib", "OdeanTCMBLib\OdeanTCMBLib.csproj", "{B1E53703-23D7-4D46-8A73-3D3480792500}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeanTCMBLib", "OdeanTCMBLib\OdeanTCMBLib.csproj", "{B1E53703-23D7-4D46-8A73-3D3480792500}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdeonTCMBApp", "OdeonTCMBApp\OdeonTCMBApp.csproj", "{71F4273B-7928-4DD6-AA1A-94A89AA243AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeonTCMBApp", "OdeonTCMBApp\OdeonTCMBApp.csproj", "{71F4273B-7928-4DD6-AA1A-94A89AA243AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibTestApp", "..\LibTestApp\LibTestApp\LibTestApp.csproj", "{5B67A5A9-CFD6-4612-96AB-1FDD6F20A0B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLTestApp", "DLLTestApp\DLLTestApp.csproj", "{AFF81F2A-CFCF-4699-AAD9-12D3FE945601}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{71F4273B-7928-4DD6-AA1A-94A89AA243AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71F4273B-7928-4DD6-AA1A-94A89AA243AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71F4273B-7928-4DD6-AA1A-94A89AA243AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B67A5A9-CFD6-4612-96AB-1FDD6F20A0B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B67A5A9-CFD6-4612-96AB-1FDD6F20A0B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B67A5A9-CFD6-4612-96AB-1FDD6F20A0B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B67A5A9-CFD6-4612-96AB-1FDD6F20A0B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF81F2A-CFCF-4699-AAD9-12D3FE945601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF81F2A-CFCF-4699-AAD9-12D3FE945601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF81F2A-CFCF-4699-AAD9-12D3FE945601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF81F2A-CFCF-4699-AAD9-12D3FE945601}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
