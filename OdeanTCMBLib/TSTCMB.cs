@@ -66,8 +66,6 @@ namespace OdeanTCMBLib
                 result.Error.ErrorMessage = ex.Message;
             }
             return result;
-           
-       
         }
 
 
