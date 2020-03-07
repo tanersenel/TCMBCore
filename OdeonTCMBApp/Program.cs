@@ -18,28 +18,38 @@ namespace OdeonTCMBApp
             //filtrelerimizi oluşturuyoruz
             //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
             //CurrencyCode a göre filtreleme
-            //filters.Add(new FilterModel()
-            //{
-            //    FilterColumn = "CurrencyCode",
-            //    FilterValue1 = "USD",
-            //    Condition = Operation.EqualTo
-            //});
-
-            //Alış Fiyatına göre filtreleme
             filters.Add(new FilterModel()
             {
-                FilterColumn = "ForexBuying",
-                FilterValue1 = 5.0,
-                FilterValue2 = 15.0,
-                Condition = Operation.Between
+                FilterColumn = FilterPropertyNames.CurrencyCode,
+                FilterValue1 = "USD",
+                Condition = Operation.EqualTo,
+                Connector = FilterStatementConnector.Or
             });
-            //Alış Fiyatına göre filtreleme
+            //CurrencyCode USD "VEYA" EUR olanları filtreleme
             filters.Add(new FilterModel()
             {
-                FilterColumn = "ForexSelling",
+                FilterColumn = FilterPropertyNames.CurrencyCode,
+                FilterValue1 = "EUR",
+                Condition = Operation.EqualTo,
+                Connector = FilterStatementConnector.And
+            });
+
+            //Alış Fiyatına göre 5.0 ile 15.0 arasında olanları filtreleme
+            filters.Add(new FilterModel()
+            {
+                FilterColumn = FilterPropertyNames.ForexBuying,
                 FilterValue1 = 5.0,
                 FilterValue2 = 15.0,
-                Condition = Operation.Between
+                Condition = Operation.Between,
+                Connector = FilterStatementConnector.And
+            });
+            //Satış Fiyatına değeri 5.0 dan büyük olanları filtreleme
+            filters.Add(new FilterModel()
+            {
+                FilterColumn = FilterPropertyNames.ForexSelling,
+                FilterValue1 = 5.0,
+                Condition = Operation.GreaterThan,
+                Connector = FilterStatementConnector.And
             });
 
             //kütüphanemize sorguyu gönderiyoruz.

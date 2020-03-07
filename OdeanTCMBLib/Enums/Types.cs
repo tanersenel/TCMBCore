@@ -20,6 +20,21 @@
             ForexBuying = 1,
             ForexSelling = 2
         }
+        public enum FilterPropertyNames
+        {
+            Unit,
+            Isim,
+            CurrencyName,
+            ForexBuying,
+            ForexSelling,
+            BanknoteBuying,
+            BanknoteSelling,
+            CrossRateUSD,
+            CrossRateOther,
+            CrossOrder,
+            Kod,
+            CurrencyCode
+        }
 
     }
 }

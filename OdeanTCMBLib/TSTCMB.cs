@@ -39,12 +39,17 @@ namespace OdeanTCMBLib
                     var xmlStr = client.DownloadString("https://www.tcmb.gov.tr/kurlar/today.xml"); //xmli string olarak downoad ediyoruz.
                     var exchangeRates = Serializer.Deserialize<ExchangeRateModel>(xmlStr); //xml stringi objeye deserialize ediyoruz.
                     string sortingColumnName = Enum.GetName(typeof(SortingDataTypes), sortingColumn); // filtrelenmesi istenen sütun adını alıyoruz
+
+                    //filter expressionları oluşturuyoruz.
                     var filter = new Filter<Currency>();
                     foreach (var filteritem in filters)
                     {
-                        filter.By(filteritem.FilterColumn, filteritem.Condition, filteritem.FilterValue1, filteritem.FilterValue2);
+                        string filterColumName = Enum.GetName(typeof(FilterPropertyNames), filteritem.FilterColumn);
+                        filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1, filteritem.FilterValue2, filteritem.Connector);
                     }
+                   
                     exchangeRates.Currency = exchangeRates.Currency.Where(filter).ToList();
+                    //sıralamayı yapıyoruz.
                     if (sortingType == SortingTypes.ASC)
                     {
                         exchangeRates.Currency = exchangeRates.Currency.OrderBy(x => x.GetType().GetProperty(sortingColumnName).GetValue(x, null)).ToList();
