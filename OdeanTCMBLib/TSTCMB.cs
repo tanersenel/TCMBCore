@@ -63,7 +63,6 @@ namespace OdeanTCMBLib
                     result.XmlResult = Serializer.SerializeXml<ExchangeRateModel>(exchangeRates);
                     result.CsvResult = Serializer.SerializeCSV<ExchangeRateModel>(exchangeRates);
                     result.Error = new ErrorModel() { Error = false, ErrorMessage = "" };
-
                 }
             }
             catch (Exception ex)
