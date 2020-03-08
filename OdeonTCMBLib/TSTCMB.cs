@@ -23,7 +23,7 @@ namespace OdeonTCMBLib
                 _authKey = authKey;
             }
         }
-        public ResultModel GetTodayExhangeRate(SortingModel sorting, List<FilterModel> filters)
+        public ResultModel GetTodayExhangeRate(SortingModel sorting=null, List<FilterModel> filters=null)
         {
             ResultModel result = new ResultModel();
             
@@ -39,38 +39,47 @@ namespace OdeonTCMBLib
                 {
                     var xmlStr = client.DownloadString("https://www.tcmb.gov.tr/kurlar/today.xml"); //xmli string olarak downoad ediyoruz.
                     var exchangeRates = Serializer.Deserialize<ExchangeRateModel>(xmlStr); //xml stringi objeye deserialize ediyoruz.
-                    string sortingColumnName = Enum.GetName(typeof(PropertyNames), sorting.SortingColumn); // sıralanması istenen sütun adını alıyoruz
+                   
 
                     //filter expressionları oluşturuyoruz.
                     var filter = new Filter<Currency>();
-                    foreach (var filteritem in filters)
+                    if (filters != null)
                     {
-                        string filterColumName = Enum.GetName(typeof(PropertyNames), filteritem.FilterColumn);
-                        if(filteritem.Group==true)
+                        foreach (var filteritem in filters)
                         {
-                            string filterColum2Name = Enum.GetName(typeof(PropertyNames), filteritem.FilterColumn2);
-                            filter.StartGroup();
-                            filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1,filteritem.Connector);
-                            filter.By(filterColum2Name, filteritem.Condition2, filteritem.FilterValue2,filteritem.GroupConnector);
-                            
+                            string filterColumName = Enum.GetName(typeof(PropertyNames), filteritem.FilterColumn);
+                            if (filteritem.Group == true)
+                            {
+                                string filterColum2Name = Enum.GetName(typeof(PropertyNames), filteritem.FilterColumn2);
+                                filter.StartGroup();
+                                filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1, filteritem.Connector);
+                                filter.By(filterColum2Name, filteritem.Condition2, filteritem.FilterValue2, filteritem.GroupConnector);
+
+                            }
+                            else
+                            {
+                                filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1, filteritem.FilterValue2, filteritem.Connector);
+                            }
+
                         }
-                        else
-                        {
-                            filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1, filteritem.FilterValue2, filteritem.Connector);
-                        }
-                       
                     }
+                    
                    
                     exchangeRates.Currency = exchangeRates.Currency.Where(filter).ToList();
                     //sıralamayı yapıyoruz.
-                    if (sorting.SortingType == SortingTypes.ASC)
+                    if(sorting !=null)
                     {
-                        exchangeRates.Currency = exchangeRates.Currency.OrderBy(x => x.GetType().GetProperty(sortingColumnName).GetValue(x, null)).ToList();
+                        string sortingColumnName = Enum.GetName(typeof(PropertyNames), sorting.SortingColumn); // sıralanması istenen sütun adını alıyoruz
+                        if (sorting.SortingType == SortingTypes.ASC)
+                        {
+                            exchangeRates.Currency = exchangeRates.Currency.OrderBy(x => x.GetType().GetProperty(sortingColumnName).GetValue(x, null)).ToList();
+                        }
+                        else if (sorting.SortingType == SortingTypes.DESC)
+                        {
+                            exchangeRates.Currency = exchangeRates.Currency.OrderByDescending(x => x.GetType().GetProperty(sortingColumnName).GetValue(x, null)).ToList();
+                        }
                     }
-                    else if (sorting.SortingType == SortingTypes.DESC)
-                    {
-                        exchangeRates.Currency = exchangeRates.Currency.OrderByDescending(x => x.GetType().GetProperty(sortingColumnName).GetValue(x, null)).ToList();
-                    }
+                   
                     result.JsonResult = Serializer.SerializeJson<ExchangeRateModel>(exchangeRates);
                     result.ObjectResult = exchangeRates;
                     result.XmlResult = Serializer.SerializeXml<ExchangeRateModel>(exchangeRates);
