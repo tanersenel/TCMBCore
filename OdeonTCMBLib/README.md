@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using OdeonTCMBLib;
-using ExpressionBuilder.Common;
-using OdeonTCMBLib.Models;
-using static OdeonTCMBLib.Enums.Types;
+# TCMBCore
+.Net Core TCMB Exchange rate app sample 
 
-namespace OdeonTCMBApp
-{
-    class Program
-    {
-        static void Main()
-        {
+<h2>TCMB Core Project</h2>
+<h3> Kütüphaneleri projemize Referans olarak ekliyoruz.</h3>
+<pre>
+      using OdeonTCMBLib;
+      using ExpressionBuilder.Common;
+      using OdeonTCMBLib.Models;
+      using static OdeonTCMBLib.Enums.Types;
+</pre>
+
+<h3>Örnek Kullanım</h3>
+<pre>
             TSTCMB lib = new TSTCMB(""); // class constructer içine authkey ekliyoruz.
             //filtrelerimizi oluşturuyoruz
             //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
@@ -73,10 +74,4 @@ namespace OdeonTCMBApp
                 var json = response.JsonResult;
                 var csv = response.CsvResult;
             }
-
-
-            Console.Read();
-
-        }
-    }
-}
+</pre>
