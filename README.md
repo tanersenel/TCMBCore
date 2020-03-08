@@ -98,6 +98,7 @@ using ExpressionBuilder.Common;
                 var json = response.JsonResult;
                 var csv = response.CsvResult;
             }
+			</pre>
 <h3>Filtreleme Örnekleri</h3>
 <b>Basic Kullanım (Tek Para Birimine Göre Filtreleme)</b>
 <pre>                    
@@ -169,7 +170,6 @@ List<FilterModel> filters = new List<FilterModel>()
 		Group=true
 	}
 };
-</pre>
 </pre>
 <h3> Filtrelemede Data tipine göre kullanılabilecek Operation Tipleri</h3>
 <ul>
