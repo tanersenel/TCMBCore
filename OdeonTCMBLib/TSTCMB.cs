@@ -50,7 +50,7 @@ namespace OdeonTCMBLib
                         {
                             filter.StartGroup();
                             filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1,filteritem.Connector);
-                            filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue2);
+                            filter.By(filterColumName, filteritem.Condition2, filteritem.FilterValue2,Connector.And);
                             
                         }
                         else

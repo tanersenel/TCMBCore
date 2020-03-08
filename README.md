@@ -39,40 +39,40 @@
                     //    Connector = Connector.And
                     //},
                     //Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme
+                    //new FilterModel()
+                    //{
+                    //    FilterColumn = PropertyNames.ForexBuying,
+                    //    FilterValue1 = 6.0,
+                    //    FilterValue2 = 10.0,
+                    //    Condition = Operation.Between,
+                    //    Connector = Connector.And
+                    //},
+                     //Alış Fiyatına göre 6.5 dan büyük 7.2 den küçük olanları filtreleme
                     new FilterModel()
                     {
                         FilterColumn = PropertyNames.ForexBuying,
-                        FilterValue1 = 6.0,
-                        FilterValue2 = 10.0,
-                        Condition = Operation.Between,
-                        Connector = Connector.And
-                    },
-                     //Alış Fiyatına göre 6.0 dan büyük 7.2 den küçük olanları filtreleme
-                    new FilterModel()
-                    {
-                        FilterColumn = PropertyNames.ForexBuying,
-                        FilterValue1 = 6.0,
+                        FilterValue1 = 6.5,
                         Condition = Operation.GreaterThan,
                         FilterValue2 = 7.2,
                         Condition2 = Operation.LessThan,
                         Connector= Connector.And,
                         Group=true
                     },
-                     //Satış Fiyatına değeri 7.0 dan büyük olanları filtreleme
-                    new FilterModel()
-                    {
-                        FilterColumn = PropertyNames.ForexSelling,
-                        FilterValue1 = 7.0,
-                        Condition = Operation.GreaterThan,
-                        Connector = Connector.And
-                    },
-                    //kur adı U harfi ile başlayanları filtreleme
-                    new FilterModel()
-                    {
-                        FilterColumn = PropertyNames.CurrencyName,
-                        FilterValue1 = "U",
-                        Condition = Operation.StartsWith
-                    }
+                    //Satış Fiyatına değeri 7.0 dan büyük olanları filtreleme
+                    //new FilterModel()
+                    //{
+                    //    FilterColumn = PropertyNames.ForexSelling,
+                    //    FilterValue1 = 7.0,
+                    //    Condition = Operation.GreaterThan,
+                    //    Connector = Connector.And
+                    //},
+                    ////kur adı U harfi ile başlayanları filtreleme
+                    //new FilterModel()
+                    //{
+                    //    FilterColumn = PropertyNames.CurrencyName,
+                    //    FilterValue1 = "U",
+                    //    Condition = Operation.StartsWith
+                    //}
             };
 
             //sıralama kriterimizi ekliyoruz. 
@@ -97,6 +97,7 @@
                 var json = response.JsonResult;
                 var csv = response.CsvResult;
             }
+
 </pre>
 <h3> Filtelemede Data tipine göre kullanılabilecek Operation Tipleri</h3>
 <ul>
