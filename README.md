@@ -85,7 +85,6 @@ using ExpressionBuilder.Common;
           //kütüphanemize sorguyu gönderiyoruz.
           //4 farklı tipte data response içerisinde yer alır.
           var response = lib.GetTodayExhangeRate(sorting, filters);
-
           if (response.Error.Error)
           {
               Console.WriteLine(response.Error.ErrorMessage);
@@ -97,7 +96,7 @@ using ExpressionBuilder.Common;
               var json = response.JsonResult;
               var csv = response.CsvResult;
           }
-		  </pre>
+</pre>
 <h3>Filtreleme Örnekleri</h3>
 <b>Basic Kullanım (Tek Para Birimine Göre Filtreleme)</b>
 <pre>                    
