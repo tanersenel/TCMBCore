@@ -1,9 +1,9 @@
 ﻿using ExpressionBuilder.Common;
-using OdeanTCMBLib;
-using OdeanTCMBLib.Models;
+using OdeonTCMBLib;
+using OdeonTCMBLib.Models;
 using System;
 using System.Collections.Generic;
-using static OdeanTCMBLib.Enums.Types;
+using static OdeonTCMBLib.Enums.Types;
 
 namespace DLLTestApp
 {
@@ -12,45 +12,53 @@ namespace DLLTestApp
         static void Main()
         {
             TSTCMB lib = new TSTCMB(""); // class constructer içine authkey ekliyoruz.
-
-            List<FilterModel> filters = new List<FilterModel>();
-
             //filtrelerimizi oluşturuyoruz
             //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
-            //CurrencyCode a göre filtreleme
-            filters.Add(new FilterModel()
+            List<FilterModel> filters = new List<FilterModel>()
             {
-                FilterColumn = PropertyNames.CurrencyCode,
-                FilterValue1 = "USD",
-                Condition = Operation.EqualTo,
-                Connector = FilterStatementConnector.Or
-            });
-            //CurrencyCode USD "VEYA" EUR olanları filtreleme
-            filters.Add(new FilterModel()
-            {
-                FilterColumn = PropertyNames.CurrencyCode,
-                FilterValue1 = "EUR",
-                Condition = Operation.EqualTo,
-                Connector = FilterStatementConnector.And
-            });
+                    //CurrencyCode a göre filtreleme
+                    new FilterModel()
+                    {
+                        FilterColumn = PropertyNames.CurrencyCode,
+                        FilterValue1 = "USD",
+                        Condition = Operation.EqualTo,
+                        Connector = FilterStatementConnector.Or
+                    },
+                     //CurrencyCode USD "VEYA" EUR olanları filtreleme bir önceki filterda  FilterStatementConnector.Or veya koşulunu ekler
+                    new FilterModel()
+                    {
+                        FilterColumn =PropertyNames.CurrencyCode,
+                        FilterValue1 = "EUR",
+                        Condition = Operation.EqualTo,
+                        Connector = FilterStatementConnector.And
+                    },
+                     //Alış Fiyatına göre 5.0 ile 15.0 arasında olanları filtreleme
+                    new FilterModel()
+                    {
+                        FilterColumn = PropertyNames.ForexBuying,
+                        FilterValue1 = 5.0,
+                        FilterValue2 = 10.0,
+                        Condition = Operation.Between,
+                        Connector = FilterStatementConnector.And
+                    },
+                     //Satış Fiyatına değeri 7.0 dan büyük olanları filtreleme
+                    new FilterModel()
+                    {
+                        FilterColumn = PropertyNames.ForexSelling,
+                        FilterValue1 = 7.0,
+                        Condition = Operation.GreaterThan,
+                        Connector = FilterStatementConnector.And
+                    },
+                    //kur adı U harfi ile başlayanları filtreleme
+                    new FilterModel()
+                    {
+                        FilterColumn = PropertyNames.CurrencyName,
+                        FilterValue1 = "U",
+                        Condition = Operation.StartsWith
+                    }
+            };
 
-            //Alış Fiyatına göre 5.0 ile 15.0 arasında olanları filtreleme
-            filters.Add(new FilterModel()
-            {
-                FilterColumn = PropertyNames.ForexBuying,
-                FilterValue1 = 5.0,
-                FilterValue2 = 10.0,
-                Condition = Operation.Between,
-                Connector = FilterStatementConnector.And
-            });
-            //Satış Fiyatına değeri 7.0 dan büyük olanları filtreleme
-            filters.Add(new FilterModel()
-            {
-                FilterColumn = PropertyNames.ForexSelling,
-                FilterValue1 = 7.0,
-                Condition = Operation.GreaterThan,
-                Connector = FilterStatementConnector.And
-            });
+            //sıralama kriterimizi ekliyoruz. 
             var sorting = new SortingModel()
             {
                 SortingColumn = PropertyNames.CurrencyCode,
