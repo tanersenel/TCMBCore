@@ -2,6 +2,11 @@
 # TCMBCore
 .Net Core TCMB Exchange rate app sample 
 
+# Nuget Package Manager Console dan projeye eklenebilir
+https://www.nuget.org/packages/OdeonTCMBLib/
+```
+PM>Install-Package OdeonTCMBLib -Version 1.0.0
+```
 
 # Kütüphaneleri projemize Referans olarak ekliyoruz.
 ```CSharp

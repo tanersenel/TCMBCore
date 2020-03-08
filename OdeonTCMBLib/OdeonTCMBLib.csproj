@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Taner ŞENEL</Authors>
+    <PackageProjectUrl>https://github.com/tanersenel/TCMBCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tanersenel/TCMBCore.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
