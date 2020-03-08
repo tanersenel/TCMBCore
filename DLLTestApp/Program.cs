@@ -18,7 +18,6 @@ namespace DLLTestApp
             List<FilterModel> filters = new List<FilterModel>()
             {
                      //CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.
-                     //CurrencyCode USD olan veya  
                     new FilterModel()
                     {
                         FilterColumn = PropertyNames.CurrencyCode,

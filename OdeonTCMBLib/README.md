@@ -152,3 +152,20 @@
 </ul>
 </li>
 </ul>
+<h3>Filtreleme Örnekleri</h3>
+<b>CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.</b>
+<pre>                    
+List<FilterModel> filters = new List<FilterModel>()
+            {
+					new FilterModel()
+                    {
+                        FilterColumn = PropertyNames.CurrencyCode,
+                        FilterValue1 = "USD",
+                        Condition = Operation.EqualTo, //CurrencyCode == "USD"
+                        Connector = Connector.Or, // || 
+                        FilterValue2 = "EUR",
+                        Condition2 = Operation.EqualTo,//CurrencyCode == "EUR"
+                        Group = true //çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
+                    },
+			};
+</pre>
