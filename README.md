@@ -133,9 +133,11 @@ List<FilterModel> filters = new List<FilterModel>()
 		FilterValue1 = "USD",
 		Condition = Operation.EqualTo, //CurrencyCode == "USD"
 		Connector = Connector.Or, // || 
+		FilterColumn2 = PropertyNames.CurrencyCode, //grupta kullanılacak ikinci alan
 		FilterValue2 = "EUR",
-		Condition2 = Operation.EqualTo,//CurrencyCode == "EUR"
-		Group = true //çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
+		Condition2 = Operation.EqualTo, //CurrencyCode == "EUR"
+		Group = true, //çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
+		GroupConnector = Connector.And //bir sonraki filtre ile arasındaki Connector çıktısı:  (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR)) && 
 	}
 };
 </pre>
