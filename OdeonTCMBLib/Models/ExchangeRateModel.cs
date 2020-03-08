@@ -37,7 +37,8 @@ namespace OdeonTCMBLib.Models
                 if (double.TryParse(value, out amount))
                     ForexSelling = amount;
             }
-        }   
+        }
+        [XmlIgnore]
         public double BanknoteBuying { get; set; }
         [XmlElement("BanknoteBuying")]
         public string BanknoteBuyingString
@@ -50,6 +51,7 @@ namespace OdeonTCMBLib.Models
                     BanknoteBuying = amount;
             }
         }
+        [XmlIgnore]
         public double BanknoteSelling { get; set; }
         [XmlElement("BanknoteSelling")]
         public string BanknoteSellingString
@@ -62,7 +64,7 @@ namespace OdeonTCMBLib.Models
                     BanknoteSelling = amount;
             }
         }
-
+        [XmlIgnore]
         public double CrossRateUSD { get; set; }
         [XmlElement("CrossRateUSD")]
         public string CrossRateUSDString
@@ -75,6 +77,7 @@ namespace OdeonTCMBLib.Models
                     CrossRateUSD = amount;
             }
         }
+        [XmlIgnore]
         public double CrossRateOther { get; set; }
         [XmlElement("CrossRateOther")]
         public string CrossRateOtherString

@@ -1,4 +1,5 @@
 ﻿using ExpressionBuilder.Common;
+using ExpressionBuilder.Operations;
 using OdeonTCMBLib;
 using OdeonTCMBLib.Models;
 using System;
@@ -22,7 +23,7 @@ namespace DLLTestApp
                         FilterColumn = PropertyNames.CurrencyCode,
                         FilterValue1 = "USD",
                         Condition = Operation.EqualTo,
-                        Connector = FilterStatementConnector.Or
+                        Connector = Connector.Or
                     },
                      //CurrencyCode USD "VEYA" EUR olanları filtreleme bir önceki filterda  FilterStatementConnector.Or veya koşulunu ekler
                     new FilterModel()
@@ -30,7 +31,7 @@ namespace DLLTestApp
                         FilterColumn =PropertyNames.CurrencyCode,
                         FilterValue1 = "EUR",
                         Condition = Operation.EqualTo,
-                        Connector = FilterStatementConnector.And
+                        Connector = Connector.And
                     },
                      //Alış Fiyatına göre 5.0 ile 15.0 arasında olanları filtreleme
                     new FilterModel()
@@ -39,7 +40,7 @@ namespace DLLTestApp
                         FilterValue1 = 5.0,
                         FilterValue2 = 10.0,
                         Condition = Operation.Between,
-                        Connector = FilterStatementConnector.And
+                        Connector = Connector.And
                     },
                      //Satış Fiyatına değeri 7.0 dan büyük olanları filtreleme
                     new FilterModel()
@@ -47,7 +48,7 @@ namespace DLLTestApp
                         FilterColumn = PropertyNames.ForexSelling,
                         FilterValue1 = 7.0,
                         Condition = Operation.GreaterThan,
-                        Connector = FilterStatementConnector.And
+                        Connector = Connector.And
                     },
                     //kur adı U harfi ile başlayanları filtreleme
                     new FilterModel()

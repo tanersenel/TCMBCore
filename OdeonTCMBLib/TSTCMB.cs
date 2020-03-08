@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using OdeonTCMBLib.Models;
 using static OdeonTCMBLib.Enums.Types;
+using ExpressionBuilder.Common;
 
 namespace OdeonTCMBLib
 {
@@ -45,7 +46,18 @@ namespace OdeonTCMBLib
                     foreach (var filteritem in filters)
                     {
                         string filterColumName = Enum.GetName(typeof(PropertyNames), filteritem.FilterColumn);
-                        filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1, filteritem.FilterValue2, filteritem.Connector);
+                        if(filteritem.Group==true)
+                        {
+                            filter.StartGroup();
+                            filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1,filteritem.Connector);
+                            filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue2);
+                            
+                        }
+                        else
+                        {
+                            filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1, filteritem.FilterValue2, filteritem.Connector);
+                        }
+                       
                     }
                    
                     exchangeRates.Currency = exchangeRates.Currency.Where(filter).ToList();
