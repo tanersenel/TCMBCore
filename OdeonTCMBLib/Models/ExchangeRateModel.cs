@@ -37,16 +37,57 @@ namespace OdeonTCMBLib.Models
                 if (double.TryParse(value, out amount))
                     ForexSelling = amount;
             }
+        }   
+        public double BanknoteBuying { get; set; }
+        [XmlElement("BanknoteBuying")]
+        public string BanknoteBuyingString
+        {
+            get { return BanknoteBuying.ToString("F2"); }
+            set
+            {
+                double amount = 0;
+                if (double.TryParse(value, out amount))
+                    BanknoteBuying = amount;
+            }
         }
-        [XmlElement(ElementName = "BanknoteBuying")]
-        public string BanknoteBuying { get; set; }
-        [XmlElement(ElementName = "BanknoteSelling")]
-        public string BanknoteSelling { get; set; }
-        [XmlElement(ElementName = "CrossRateUSD")]
-        
-        public string CrossRateUSD { get; set; }
-        [XmlElement(ElementName = "CrossRateOther")]
-        public string CrossRateOther { get; set; }
+        public double BanknoteSelling { get; set; }
+        [XmlElement("BanknoteSelling")]
+        public string BanknoteSellingString
+        {
+            get { return BanknoteSelling.ToString("F2"); }
+            set
+            {
+                double amount = 0;
+                if (double.TryParse(value, out amount))
+                    BanknoteSelling = amount;
+            }
+        }
+
+        public double CrossRateUSD { get; set; }
+        [XmlElement("CrossRateUSD")]
+        public string CrossRateUSDString
+        {
+            get { return CrossRateUSD.ToString("F2"); }
+            set
+            {
+                double amount = 0;
+                if (double.TryParse(value, out amount))
+                    CrossRateUSD = amount;
+            }
+        }
+        public double CrossRateOther { get; set; }
+        [XmlElement("CrossRateOther")]
+        public string CrossRateOtherString
+        {
+            get { return CrossRateOther.ToString("F2"); }
+            set
+            {
+                double amount = 0;
+                if (double.TryParse(value, out amount))
+                    CrossRateOther = amount;
+            }
+        }
+      
         [XmlAttribute(AttributeName = "CrossOrder")]
         public string CrossOrder { get; set; }
         [XmlAttribute(AttributeName = "Kod")]
