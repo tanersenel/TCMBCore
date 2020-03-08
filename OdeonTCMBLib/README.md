@@ -99,7 +99,7 @@ using ExpressionBuilder.Common;
 </pre>
 <h3>Filtreleme Örnekleri</h3>
 <b>Basic Kullanım (Tek Para Birimine Göre Filtreleme)</b>
-<pre>                    
+```               
 List<FilterModel> filters = new List<FilterModel>()
 { 
 	new FilterModel()
@@ -110,7 +110,7 @@ List<FilterModel> filters = new List<FilterModel>()
 		Connector = Connector.And
 	}
 };
-</pre>
+```
 <b>Kur Adının İlk harfine göre filtreleme</b>
 <pre>                    
 List<FilterModel> filters = new List<FilterModel>()
