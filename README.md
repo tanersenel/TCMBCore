@@ -1,19 +1,19 @@
+
 # TCMBCore
 .Net Core TCMB Exchange rate app sample 
 
-<h2>TCMB Core Project</h2>
-<h3> Kütüphaneleri projemize Referans olarak ekliyoruz.</h3>
-<pre>
+
+# Kütüphaneleri projemize Referans olarak ekliyoruz.
+```
 using OdeonTCMBLib;
 using OdeonTCMBLib.Models;
 using static OdeonTCMBLib.Enums.Types;
 using ExpressionBuilder.Operations;
 using ExpressionBuilder.Common;
-</pre>
-
-<h3>Örnek Kullanım</h3>
-<pre>
-          TSTCMB lib = new TSTCMB(""); // class constructor içine authkey ekliyoruz.
+```
+# Örnek Kullanım
+```
+TSTCMB lib = new TSTCMB(""); // class constructor içine authkey ekliyoruz.
           //filtrelerimizi oluşturuyoruz
           //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
           List<FilterModel> filters = new List<FilterModel>()
@@ -96,11 +96,11 @@ using ExpressionBuilder.Common;
               var json = response.JsonResult;
               var csv = response.CsvResult;
           }
-</pre>
-<h3>Filtreleme Örnekleri</h3>
-<b>Basic Kullanım (Tek Para Birimine Göre Filtreleme)</b>
-<pre>                    
-List<FilterModel> filters = new List<FilterModel>()
+```
+# Filtreleme Örnekleri
+   - Basic Kullanım (Tek Para Birimine Göre Filtreleme)
+ ```
+ List<FilterModel> filters = new List<FilterModel>()
 { 
 	new FilterModel()
 	{
@@ -110,9 +110,9 @@ List<FilterModel> filters = new List<FilterModel>()
 		Connector = Connector.And
 	}
 };
-</pre>
-<b>Kur Adının İlk harfine göre filtreleme</b>
-<pre>                    
+ ```
+ - Kur Adının İlk harfine göre filtreleme
+```
 List<FilterModel> filters = new List<FilterModel>()
 { 
 	new FilterModel()
@@ -122,9 +122,9 @@ List<FilterModel> filters = new List<FilterModel>()
 		Condition = Operation.StartsWith
 	}
 };
-</pre>
-<b>CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.</b>
-<pre>                    
+```
+ - CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.
+```
 List<FilterModel> filters = new List<FilterModel>()
 {
 	new FilterModel()
@@ -140,9 +140,9 @@ List<FilterModel> filters = new List<FilterModel>()
 		GroupConnector = Connector.And //bir sonraki filtre ile arasındaki Connector çıktısı:  (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR)) && 
 	}
 };
-</pre>
-<b>Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme</b>
-<pre>                    
+```
+ - Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme
+```
 List<FilterModel> filters = new List<FilterModel>()
 {
 	new FilterModel()
@@ -153,9 +153,9 @@ List<FilterModel> filters = new List<FilterModel>()
 		Condition = Operation.Between
 	}
 };
-</pre>
-<b>Alış Fiyatı 6.5 dan büyük ve Satış fiyatı 7.2 den küçük olanları filtreleme</b>
-<pre>                    
+```
+ - Alış Fiyatı 6.5 dan büyük ve Satış fiyatı 7.2 den küçük olanları filtreleme
+```
 List<FilterModel> filters = new List<FilterModel>()
 {
 	new FilterModel()
@@ -170,9 +170,10 @@ List<FilterModel> filters = new List<FilterModel>()
 		Group=true
 	}
 };
-</pre>
+```
+# Filtrelemede Data tipine göre kullanılabilecek Operation Tipleri
+ 
 
-<h3> Filtrelemede Data tipine göre kullanılabilecek Operation Tipleri</h3>
 <ul>
 <li>Default
 <ul>
@@ -225,3 +226,14 @@ List<FilterModel> filters = new List<FilterModel>()
 </ul>
 </li>
 </ul>
+
+### Todos
+
+ - Write Unit Tests
+
+License
+----
+
+MIT
+
+
