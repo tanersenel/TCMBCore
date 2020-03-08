@@ -48,6 +48,13 @@ namespace OdeonTCMBApp
                         FilterValue1 = 7.0,
                         Condition = Operation.GreaterThan,
                         Connector = FilterStatementConnector.And
+                    },
+                    //kur adı U harfi ile başlayanları filtreleme
+                    new FilterModel()
+                    {
+                        FilterColumn = PropertyNames.CurrencyName,
+                        FilterValue1 = "U",
+                        Condition = Operation.StartsWith
                     }
             };
 
