@@ -153,19 +153,74 @@
 </li>
 </ul>
 <h3>Filtreleme Örnekleri</h3>
+<b>Basic Kullanım (Tek Para Birimine Göre Filtreleme)</b>
+<pre>                    
+List<FilterModel> filters = new List<FilterModel>()
+{ 
+		new FilterModel()
+		{
+			FilterColumn =PropertyNames.CurrencyCode,
+			FilterValue1 = "EUR",
+			Condition = Operation.EqualTo,
+			Connector = Connector.And
+		}
+};
+</pre>
+<b>Kur Adının İlk harfine göre filtreleme</b>
+<pre>                    
+List<FilterModel> filters = new List<FilterModel>()
+		{ 
+		new FilterModel()
+		{
+			FilterColumn = PropertyNames.CurrencyName,
+			FilterValue1 = "U",
+			Condition = Operation.StartsWith
+		}
+};
+</pre>
 <b>CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.</b>
 <pre>                    
 List<FilterModel> filters = new List<FilterModel>()
-            {
-				new FilterModel()
-						{
-							FilterColumn = PropertyNames.CurrencyCode,
-							FilterValue1 = "USD",
-							Condition = Operation.EqualTo, //CurrencyCode == "USD"
-							Connector = Connector.Or, // || 
-							FilterValue2 = "EUR",
-							Condition2 = Operation.EqualTo,//CurrencyCode == "EUR"
-							Group = true //çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
-				},
-			};
+{
+	new FilterModel()
+	{
+		FilterColumn = PropertyNames.CurrencyCode,
+		FilterValue1 = "USD",
+		Condition = Operation.EqualTo, //CurrencyCode == "USD"
+		Connector = Connector.Or, // || 
+		FilterValue2 = "EUR",
+		Condition2 = Operation.EqualTo,//CurrencyCode == "EUR"
+		Group = true //çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
+	}
+};
+</pre>
+<b>Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme</b>
+<pre>                    
+List<FilterModel> filters = new List<FilterModel>()
+{
+	new FilterModel()
+	{
+		FilterColumn = PropertyNames.ForexBuying,
+        FilterValue1 = 6.0,
+        FilterValue2 = 10.0,
+        Condition = Operation.Between
+	}
+};
+</pre>
+<b>Alış Fiyatı 6.5 dan büyük ve Satış fiyatı 7.2 den küçük olanları filtreleme</b>
+<pre>                    
+List<FilterModel> filters = new List<FilterModel>()
+{
+	new FilterModel()
+	{
+		FilterColumn = PropertyNames.ForexBuying,
+        FilterValue1 = 6.5,
+        Condition = Operation.GreaterThan,
+        FilterColumn2 = PropertyNames.ForexSelling,
+        FilterValue2 = 7.2,
+        Condition2 = Operation.LessThan,
+        Connector= Connector.And,
+        Group=true
+	}
+};
 </pre>

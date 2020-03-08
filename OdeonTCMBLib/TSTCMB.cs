@@ -48,9 +48,10 @@ namespace OdeonTCMBLib
                         string filterColumName = Enum.GetName(typeof(PropertyNames), filteritem.FilterColumn);
                         if(filteritem.Group==true)
                         {
+                            string filterColum2Name = Enum.GetName(typeof(PropertyNames), filteritem.FilterColumn2);
                             filter.StartGroup();
                             filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1,filteritem.Connector);
-                            filter.By(filterColumName, filteritem.Condition2, filteritem.FilterValue2,Connector.And);
+                            filter.By(filterColum2Name, filteritem.Condition2, filteritem.FilterValue2,filteritem.GroupConnector);
                             
                         }
                         else

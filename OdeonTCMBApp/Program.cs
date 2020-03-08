@@ -17,26 +17,28 @@ namespace OdeonTCMBApp
             //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
             List<FilterModel> filters = new List<FilterModel>()
             {
-                     //CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.
-                     //CurrencyCode USD olan veya  
-                    new FilterModel() 
+                    //Sadece CurrencyCode a göre filtreleme
+                    new FilterModel()
                     {
-                        FilterColumn = PropertyNames.CurrencyCode,
-                        FilterValue1 = "USD",
-                        Condition = Operation.EqualTo, //CurrencyCode == "USD"
-                        Connector = Connector.Or, // || 
-                        FilterValue2 = "EUR",
-                        Condition2 = Operation.EqualTo,//CurrencyCode == "EUR"
-                        Group = true //çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
-                    },
-                     //Sadece CurrencyCode a göre filtreleme
-                    //new FilterModel()
+                        FilterColumn =PropertyNames.CurrencyCode,
+                        FilterValue1 = "EUR",
+                        Condition = Operation.EqualTo,
+                        Connector = Connector.And
+                    }
+                     //CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.
+                    //new FilterModel() 
                     //{
-                    //    FilterColumn =PropertyNames.CurrencyCode,
-                    //    FilterValue1 = "EUR",
-                    //    Condition = Operation.EqualTo,
-                    //    Connector = Connector.And
+                    //    FilterColumn = PropertyNames.CurrencyCode,
+                    //    FilterValue1 = "USD",
+                    //    Condition = Operation.EqualTo, //CurrencyCode == "USD"
+                    //    Connector = Connector.Or, // || 
+                    //    FilterColumn2 = PropertyNames.CurrencyCode, //grupta kullanılacak ikinci alan
+                    //    FilterValue2 = "EUR",
+                    //    Condition2 = Operation.EqualTo,//CurrencyCode == "EUR"
+                    //    Group = true ,//çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
+                    //    GroupConnector = Connector.And //bir sonraki filtre ile arasındaki Connector çıktısı:  (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR)) && 
                     //},
+                   
                     //Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme
                     //new FilterModel()
                     //{
@@ -46,17 +48,18 @@ namespace OdeonTCMBApp
                     //    Condition = Operation.Between,
                     //    Connector = Connector.And
                     //},
-                     //Alış Fiyatına göre 6.5 dan büyük 7.2 den küçük olanları filtreleme
-                    new FilterModel()
-                    {
-                        FilterColumn = PropertyNames.ForexBuying,
-                        FilterValue1 = 6.5,
-                        Condition = Operation.GreaterThan,
-                        FilterValue2 = 7.2,
-                        Condition2 = Operation.LessThan,
-                        Connector= Connector.And,
-                        Group=true
-                    },
+                     //Alış Fiyatı 6.5 dan büyük ve Satış fiyatı 7.2 den küçük olanları filtreleme
+                    //new FilterModel()
+                    //{
+                    //    FilterColumn = PropertyNames.ForexBuying,
+                    //    FilterValue1 = 6.5,
+                    //    Condition = Operation.GreaterThan,
+                    //    FilterColumn2 = PropertyNames.ForexSelling,
+                    //    FilterValue2 = 7.2,
+                    //    Condition2 = Operation.LessThan,
+                    //    Connector= Connector.And,
+                    //    Group=true
+                    //},
                     //Satış Fiyatına değeri 7.0 dan büyük olanları filtreleme
                     //new FilterModel()
                     //{
