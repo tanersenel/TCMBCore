@@ -4,7 +4,7 @@
 
 
 # Kütüphaneleri projemize Referans olarak ekliyoruz.
-```
+```CSharp
 using OdeonTCMBLib;
 using OdeonTCMBLib.Models;
 using static OdeonTCMBLib.Enums.Types;
@@ -12,7 +12,7 @@ using ExpressionBuilder.Operations;
 using ExpressionBuilder.Common;
 ```
 # Örnek Kullanım
-```
+```CSharp
 		  TSTCMB lib = new TSTCMB(""); // class constructor içine authkey ekliyoruz.
           //filtrelerimizi oluşturuyoruz
           //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
@@ -76,7 +76,7 @@ using ExpressionBuilder.Common;
 ```
 # Filtreleme Örnekleri
    - Basic Kullanım (Tek Para Birimine Göre Filtreleme)
- ```
+ ```CSharp
  List<FilterModel> filters = new List<FilterModel>()
 { 
 	new FilterModel()
@@ -89,7 +89,7 @@ using ExpressionBuilder.Common;
 };
  ```
  - Kur Adının İlk harfine göre filtreleme
-```
+```CSharp
 List<FilterModel> filters = new List<FilterModel>()
 { 
 	new FilterModel()
@@ -101,7 +101,7 @@ List<FilterModel> filters = new List<FilterModel>()
 };
 ```
  - CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.
-```
+```CSharp
 List<FilterModel> filters = new List<FilterModel>()
 {
 	new FilterModel()
@@ -119,7 +119,7 @@ List<FilterModel> filters = new List<FilterModel>()
 };
 ```
  - Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme
-```
+```CSharp
 List<FilterModel> filters = new List<FilterModel>()
 {
 	new FilterModel()
@@ -132,7 +132,7 @@ List<FilterModel> filters = new List<FilterModel>()
 };
 ```
  - Alış Fiyatı 6.5 dan büyük ve Satış fiyatı 7.2 den küçük olanları filtreleme
-```
+```CSharp
 List<FilterModel> filters = new List<FilterModel>()
 {
 	new FilterModel()
