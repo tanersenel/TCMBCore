@@ -24,57 +24,33 @@ namespace DLLTestApp
                         FilterValue1 = "EUR",
                         Condition = Operation.EqualTo,
                         Connector = Connector.And
-                    }
+                    },
                      //CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.
-                    //new FilterModel() 
-                    //{
-                    //    FilterColumn = PropertyNames.CurrencyCode,
-                    //    FilterValue1 = "USD",
-                    //    Condition = Operation.EqualTo, //CurrencyCode == "USD"
-                    //    Connector = Connector.Or, // || 
-                    //    FilterColumn2 = PropertyNames.CurrencyCode, //grupta kullanılacak ikinci alan
-                    //    FilterValue2 = "EUR",
-                    //    Condition2 = Operation.EqualTo,//CurrencyCode == "EUR"
-                    //    Group = true ,//çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
-                    //    GroupConnector = Connector.And //bir sonraki filtre ile arasındaki Connector çıktısı:  (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR)) && 
-                    //},
-                   
-                    //Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme
-                    //new FilterModel()
-                    //{
-                    //    FilterColumn = PropertyNames.ForexBuying,
-                    //    FilterValue1 = 6.0,
-                    //    FilterValue2 = 10.0,
-                    //    Condition = Operation.Between,
-                    //    Connector = Connector.And
-                    //},
+                    new FilterModel()
+                    {
+                        FilterColumn = PropertyNames.CurrencyCode,
+                        FilterValue1 = "USD",
+                        Condition = Operation.EqualTo, //CurrencyCode == "USD"
+                        Connector = Connector.Or, // || 
+                        FilterColumn2 = PropertyNames.CurrencyCode, //grupta kullanılacak ikinci alan
+                        FilterValue2 = "EUR",
+                        Condition2 = Operation.EqualTo,//CurrencyCode == "EUR"
+                        Group = true ,//çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
+                        GroupConnector = Connector.And //bir sonraki filtre ile arasındaki Connector çıktısı:  (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR)) && 
+                    },
                      //Alış Fiyatı 6.5 dan büyük ve Satış fiyatı 7.2 den küçük olanları filtreleme
-                    //new FilterModel()
-                    //{
-                    //    FilterColumn = PropertyNames.ForexBuying,
-                    //    FilterValue1 = 6.5,
-                    //    Condition = Operation.GreaterThan,
-                    //    FilterColumn2 = PropertyNames.ForexSelling,
-                    //    FilterValue2 = 7.2,
-                    //    Condition2 = Operation.LessThan,
-                    //    Connector= Connector.And,
-                    //    Group=true
-                    //},
-                    //Satış Fiyatına değeri 7.0 dan büyük olanları filtreleme
-                    //new FilterModel()
-                    //{
-                    //    FilterColumn = PropertyNames.ForexSelling,
-                    //    FilterValue1 = 7.0,
-                    //    Condition = Operation.GreaterThan,
-                    //    Connector = Connector.And
-                    //},
-                    ////kur adı U harfi ile başlayanları filtreleme
-                    //new FilterModel()
-                    //{
-                    //    FilterColumn = PropertyNames.CurrencyName,
-                    //    FilterValue1 = "U",
-                    //    Condition = Operation.StartsWith
-                    //}
+                    new FilterModel()
+                    {
+                        FilterColumn = PropertyNames.ForexBuying,
+                        FilterValue1 = 6.5,
+                        Condition = Operation.GreaterThan,
+                        FilterColumn2 = PropertyNames.ForexSelling,
+                        FilterValue2 = 7.2,
+                        Condition2 = Operation.LessThan,
+                        Connector= Connector.And,
+                        Group=true
+                    }
+                   
             };
 
             //sıralama kriterimizi ekliyoruz. 
