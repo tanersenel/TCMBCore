@@ -3,16 +3,16 @@
 
 <h2>TCMB Core Project</h2>
 <h3> Kütüphaneleri projemize Referans olarak ekliyoruz.</h3>
-<code>
+<pre>
 using OdeonTCMBLib;
 using OdeonTCMBLib.Models;
 using static OdeonTCMBLib.Enums.Types;
-using ExcodessionBuilder.Operations;
-using ExcodessionBuilder.Common;
-</code>
+using ExpressionBuilder.Operations;
+using ExpressionBuilder.Common;
+</pre>
 
 <h3>Örnek Kullanım</h3>
-<code>
+<pre>
           TSTCMB lib = new TSTCMB(""); // class constructor içine authkey ekliyoruz.
           //filtrelerimizi oluşturuyoruz
           //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
@@ -96,10 +96,10 @@ using ExcodessionBuilder.Common;
               var json = response.JsonResult;
               var csv = response.CsvResult;
           }
-</code>
+</pre>
 <h3>Filtreleme Örnekleri</h3>
 <b>Basic Kullanım (Tek Para Birimine Göre Filtreleme)</b>
-<code>                    
+<pre>                    
 List<FilterModel> filters = new List<FilterModel>()
 { 
 	new FilterModel()
@@ -110,9 +110,9 @@ List<FilterModel> filters = new List<FilterModel>()
 		Connector = Connector.And
 	}
 };
-</code>
+</pre>
 <b>Kur Adının İlk harfine göre filtreleme</b>
-<code>                    
+<pre>                    
 List<FilterModel> filters = new List<FilterModel>()
 { 
 	new FilterModel()
@@ -122,9 +122,9 @@ List<FilterModel> filters = new List<FilterModel>()
 		Condition = Operation.StartsWith
 	}
 };
-</code>
+</pre>
 <b>CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.</b>
-<code>                    
+<pre>                    
 List<FilterModel> filters = new List<FilterModel>()
 {
 	new FilterModel()
@@ -140,9 +140,9 @@ List<FilterModel> filters = new List<FilterModel>()
 		GroupConnector = Connector.And //bir sonraki filtre ile arasındaki Connector çıktısı:  (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR)) && 
 	}
 };
-</code>
+</pre>
 <b>Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme</b>
-<code>                    
+<pre>                    
 List<FilterModel> filters = new List<FilterModel>()
 {
 	new FilterModel()
@@ -153,9 +153,9 @@ List<FilterModel> filters = new List<FilterModel>()
 		Condition = Operation.Between
 	}
 };
-</code>
+</pre>
 <b>Alış Fiyatı 6.5 dan büyük ve Satış fiyatı 7.2 den küçük olanları filtreleme</b>
-<code>                    
+<pre>                    
 List<FilterModel> filters = new List<FilterModel>()
 {
 	new FilterModel()
@@ -170,7 +170,7 @@ List<FilterModel> filters = new List<FilterModel>()
 		Group=true
 	}
 };
-</code>
+</pre>
 
 <h3> Filtrelemede Data tipine göre kullanılabilecek Operation Tipleri</h3>
 <ul>
