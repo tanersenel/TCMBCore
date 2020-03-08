@@ -51,6 +51,7 @@ using ExpressionBuilder.Common;
 						Connector= Connector.And,
 						Group=true
 					}
+
           };
           //sıralama kriterimizi ekliyoruz. 
           var sorting = new SortingModel()
