@@ -12,7 +12,7 @@ namespace OdeonTCMBApp
     {
         static void Main()
         {
-            TSTCMB lib = new TSTCMB(""); // class constructer içine authkey ekliyoruz.
+            TSTCMB lib = new TSTCMB(""); // class constructor içine authkey ekliyoruz.
             //filtrelerimizi oluşturuyoruz
             //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
             List<FilterModel> filters = new List<FilterModel>()
@@ -37,8 +37,7 @@ namespace OdeonTCMBApp
                 //    Condition2 = Operation.EqualTo,//CurrencyCode == "EUR"
                 //    Group = true ,//çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
                 //    GroupConnector = Connector.And //bir sonraki filtre ile arasındaki Connector çıktısı:  (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR)) && 
-                //},
-                   
+                //},                   
                 //Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme
                 //new FilterModel()
                 //{

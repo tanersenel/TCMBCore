@@ -13,7 +13,7 @@ using ExpressionBuilder.Common;
 
 <h3>Örnek Kullanım</h3>
 <pre>
-          TSTCMB lib = new TSTCMB(""); // class constructer içine authkey ekliyoruz.
+          TSTCMB lib = new TSTCMB(""); // class constructor içine authkey ekliyoruz.
           //filtrelerimizi oluşturuyoruz
           //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
           List<FilterModel> filters = new List<FilterModel>()
@@ -39,7 +39,6 @@ using ExpressionBuilder.Common;
             //    Group = true ,//çıktısı (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR))
             //    GroupConnector = Connector.And //bir sonraki filtre ile arasındaki Connector çıktısı:  (x=> (x.CurrencoCode =="USD" || x.CurrencyCode ==""EUR)) && 
             //},
-                   
             //Alış Fiyatına göre 6.0 ile 10.0 arasında olanları filtreleme
             //new FilterModel()
             //{
@@ -77,29 +76,28 @@ using ExpressionBuilder.Common;
             //    Condition = Operation.StartsWith
             //}
           };
-            //sıralama kriterimizi ekliyoruz. 
-            var sorting = new SortingModel()
-            {
-                SortingColumn = PropertyNames.CurrencyCode,
-                SortingType = SortingTypes.ASC
-            };
-            //kütüphanemize sorguyu gönderiyoruz.
-            //4 farklı tipte data response içerisinde yer alır.
-            var response = lib.GetTodayExhangeRate(sorting, filters);
+          //sıralama kriterimizi ekliyoruz. 
+          var sorting = new SortingModel()
+          {
+              SortingColumn = PropertyNames.CurrencyCode,
+              SortingType = SortingTypes.ASC
+          };
+          //kütüphanemize sorguyu gönderiyoruz.
+          //4 farklı tipte data response içerisinde yer alır.
+          var response = lib.GetTodayExhangeRate(sorting, filters);
 
-            if (response.Error.Error)
-            {
-                Console.WriteLine(response.Error.ErrorMessage);
-            }
-            else
-            {
-                var obj = response.ObjectResult;
-                var xml = response.XmlResult;
-                var json = response.JsonResult;
-                var csv = response.CsvResult;
-            }
-
-</pre>
+          if (response.Error.Error)
+          {
+              Console.WriteLine(response.Error.ErrorMessage);
+          }
+          else
+          {
+              var obj = response.ObjectResult;
+              var xml = response.XmlResult;
+              var json = response.JsonResult;
+              var csv = response.CsvResult;
+          }
+		  </pre>
 <h3>Filtreleme Örnekleri</h3>
 <b>Basic Kullanım (Tek Para Birimine Göre Filtreleme)</b>
 <pre>                    
