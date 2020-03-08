@@ -13,7 +13,7 @@ using ExpressionBuilder.Common;
 ```
 # Örnek Kullanım
 ```
-TSTCMB lib = new TSTCMB(""); // class constructor içine authkey ekliyoruz.
+	  TSTCMB lib = new TSTCMB(""); // class constructor içine authkey ekliyoruz.
           //filtrelerimizi oluşturuyoruz
           //yazdığımız alanın data tipine göre value göndermeliyiz. int ise int double ise double. CurrencyModel den data tiplerini görebilirsiniz
           List<FilterModel> filters = new List<FilterModel>()
