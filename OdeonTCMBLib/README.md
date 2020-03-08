@@ -202,9 +202,9 @@ List<FilterModel> filters = new List<FilterModel>()
 	new FilterModel()
 	{
 		FilterColumn = PropertyNames.ForexBuying,
-        FilterValue1 = 6.0,
-        FilterValue2 = 10.0,
-        Condition = Operation.Between
+		FilterValue1 = 6.0,
+		FilterValue2 = 10.0,
+		Condition = Operation.Between
 	}
 };
 </pre>
@@ -215,13 +215,13 @@ List<FilterModel> filters = new List<FilterModel>()
 	new FilterModel()
 	{
 		FilterColumn = PropertyNames.ForexBuying,
-        FilterValue1 = 6.5,
-        Condition = Operation.GreaterThan,
-        FilterColumn2 = PropertyNames.ForexSelling,
-        FilterValue2 = 7.2,
-        Condition2 = Operation.LessThan,
-        Connector= Connector.And,
-        Group=true
+		FilterValue1 = 6.5,
+		Condition = Operation.GreaterThan,
+		FilterColumn2 = PropertyNames.ForexSelling,
+		FilterValue2 = 7.2,
+		Condition2 = Operation.LessThan,
+		Connector= Connector.And,
+		Group=true
 	}
 };
 </pre>
