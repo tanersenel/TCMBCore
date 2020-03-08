@@ -25,7 +25,8 @@
                         Condition = Operation.EqualTo,
                         Connector = FilterStatementConnector.Or
                     },
-                     //CurrencyCode USD "VEYA" EUR olanları filtreleme bir önceki filterda  FilterStatementConnector.Or veya koşulunu ekler
+                     //CurrencyCode USD "VEYA" EUR olanları filtreleme bir önceki filterda  
+					 //FilterStatementConnector.Or veya koşulunu ekler
                     new FilterModel()
                     {
                         FilterColumn =PropertyNames.CurrencyCode,
