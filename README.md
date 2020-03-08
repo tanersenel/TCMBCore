@@ -25,7 +25,8 @@
                         Condition = Operation.EqualTo,
                         Connector = FilterStatementConnector.Or
                     },
-                     //CurrencyCode USD "VEYA" EUR olanları filtreleme bir önceki filterda  FilterStatementConnector.Or veya koşulunu ekler
+                     //CurrencyCode USD "VEYA" EUR olanları filtreleme bir önceki filterda  
+					 //FilterStatementConnector.Or veya koşulunu ekler
                     new FilterModel()
                     {
                         FilterColumn =PropertyNames.CurrencyCode,
@@ -51,7 +52,6 @@
                         Connector = FilterStatementConnector.And
                     }
             };
-
             //sıralama kriterimizi ekliyoruz. 
             var sorting = new SortingModel()
             {
@@ -75,3 +75,56 @@
                 var csv = response.CsvResult;
             }
 </pre>
+<h3> Filtelemede Data tipine göre kullanılabilecek Operation Tipleri</h3>
+<ul>
+<li>Default
+<ul>
+<li>EqualTo</li>
+<li>NotEqualTo</li>
+</ul>
+</li>
+<li>Text
+<ul>
+<li>Contains</li>
+<li>DoesNotContain</li>
+<li>EndsWith</li>
+<li>EqualTo</li>
+<li>IsEmpty</li>
+<li>IsNotEmpty</li>
+<li>IsNotNull</li>
+<li>IsNotNullNorWhiteSpace</li>
+<li>IsNull</li>
+<li>IsNullOrWhiteSpace</li>
+<li>NotEqualTo</li>
+<li>StartsWith</li>
+</ul>
+</li>
+<li>Number
+<ul>
+<li>Between</li>
+<li>EqualTo</li>
+<li>GreaterThan</li>
+<li>GreaterThanOrEqualTo</li>
+<li>LessThan</li>
+<li>LessThanOrEqualTo</li>
+<li>NotEqualTo</li>
+</ul>
+</li>
+<li>Boolean
+<ul>
+<li>EqualTo</li>
+<li>NotEqualTo</li>
+</ul>
+</li>
+<li>Date
+<ul>
+<li>Between</li>
+<li>EqualTo</li>
+<li>GreaterThan</li>
+<li>GreaterThanOrEqualTo</li>
+<li>LessThan</li>
+<li>LessThanOrEqualTo</li>
+<li>NotEqualTo</li>
+</ul>
+</li>
+</ul>
