@@ -157,25 +157,25 @@
 <pre>                    
 List<FilterModel> filters = new List<FilterModel>()
 { 
-		new FilterModel()
-		{
-			FilterColumn =PropertyNames.CurrencyCode,
-			FilterValue1 = "EUR",
-			Condition = Operation.EqualTo,
-			Connector = Connector.And
-		}
+	new FilterModel()
+	{
+		FilterColumn =PropertyNames.CurrencyCode,
+		FilterValue1 = "EUR",
+		Condition = Operation.EqualTo,
+		Connector = Connector.And
+	}
 };
 </pre>
 <b>Kur Adının İlk harfine göre filtreleme</b>
 <pre>                    
 List<FilterModel> filters = new List<FilterModel>()
-		{ 
-		new FilterModel()
-		{
-			FilterColumn = PropertyNames.CurrencyName,
-			FilterValue1 = "U",
-			Condition = Operation.StartsWith
-		}
+{ 
+	new FilterModel()
+	{
+		FilterColumn = PropertyNames.CurrencyName,
+		FilterValue1 = "U",
+		Condition = Operation.StartsWith
+	}
 };
 </pre>
 <b>CurrencyCode USD "VEYA" EUR olanları filtreleme Group=true gönderilmelidir.</b>
