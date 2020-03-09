@@ -21,7 +21,7 @@ Proje .Net Core 3.0 ile hazırlanmıştır
 Bu Kütüphane projeye dahil edilmiştir 
 Ayrıca Package Manager Consoledan da referans eklenebilir.
 
-Repo Adresi:
+Repository Adresi:
 https://github.com/tanersenel/ExpressionBuilderCore
 
 Kurulum
