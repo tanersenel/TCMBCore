@@ -16,6 +16,9 @@ Proje .Net Core 3.0 ile hazırlanmıştır
  - NUnit
  - System.Configuration.ConfigurationManager
 
+# ExpressionBuilderCore External Project 
+
+https://github.com/tanersenel/ExpressionBuilderCore
 
 
 # Kütüphaneleri projemize Referans olarak ekliyoruz.
