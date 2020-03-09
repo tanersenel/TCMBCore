@@ -26,7 +26,6 @@ namespace OdeonTCMBLib
         public ResultModel GetTodayExhangeRate(SortingModel sorting=null, List<FilterModel> filters=null)
         {
             ResultModel result = new ResultModel();
-            
             //authkey yanlış ise error döner
             if (!auth)
             {
@@ -40,7 +39,6 @@ namespace OdeonTCMBLib
                     var xmlStr = client.DownloadString("https://www.tcmb.gov.tr/kurlar/today.xml"); //xmli string olarak downoad ediyoruz.
                     var exchangeRates = Serializer.Deserialize<ExchangeRateModel>(xmlStr); //xml stringi objeye deserialize ediyoruz.
                    
-
                     //filter expressionları oluşturuyoruz.
                     var filter = new Filter<Currency>();
                     if (filters != null)
@@ -60,11 +58,8 @@ namespace OdeonTCMBLib
                             {
                                 filter.By(filterColumName, filteritem.Condition, filteritem.FilterValue1, filteritem.FilterValue2, filteritem.Connector);
                             }
-
                         }
                     }
-                    
-                   
                     exchangeRates.Currency = exchangeRates.Currency.Where(filter).ToList();
                     //sıralamayı yapıyoruz.
                     if(sorting !=null)
@@ -79,7 +74,6 @@ namespace OdeonTCMBLib
                             exchangeRates.Currency = exchangeRates.Currency.OrderByDescending(x => x.GetType().GetProperty(sortingColumnName).GetValue(x, null)).ToList();
                         }
                     }
-                   
                     result.JsonResult = Serializer.SerializeJson<ExchangeRateModel>(exchangeRates);
                     result.ObjectResult = exchangeRates;
                     result.XmlResult = Serializer.SerializeXml<ExchangeRateModel>(exchangeRates);
