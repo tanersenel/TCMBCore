@@ -8,6 +8,16 @@ https://www.nuget.org/packages/OdeonTCMBLib/
 PM>Install-Package OdeonTCMBLib -Version 1.0.0
 ```
 
+# Proje Açıklaması
+Proje TCMB döviz kurları sayfasından günlük döviz kurlarını belirlenenkriterlere filtreler.
+Proje .Net Core 3.0 ile hazırlanmıştır
+# Kullanılan Harici Kütüphaneler (Nuget)
+Newtonsoft.Json
+NUnit
+System.Configuration.ConfigurationManager
+
+
+
 # Kütüphaneleri projemize Referans olarak ekliyoruz.
 ```CSharp
 using OdeonTCMBLib;
