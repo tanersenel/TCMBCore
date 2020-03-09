@@ -219,9 +219,6 @@ List<FilterModel> filters = new List<FilterModel>()
 </li>
 </ul>
 
-### Todos
-
- - Write Unit Tests
 
 License
 ----
