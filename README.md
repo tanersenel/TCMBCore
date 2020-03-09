@@ -16,9 +16,18 @@ Proje .Net Core 3.0 ile hazırlanmıştır
  - NUnit
  - System.Configuration.ConfigurationManager
 
-# ExpressionBuilderCore External Project 
+# ExpressionBuilderCore
 
+Bu Kütüphane projeye dahil edilmiştir 
+Ayrıca Package Manager Consoledan da referans eklenebilir.
+
+Repo Adresi:
 https://github.com/tanersenel/ExpressionBuilderCore
+
+Kurulum
+```
+PM> Install-Package ExpressionBuilderCore -Version 1.0.0
+```
 
 
 # Kütüphaneleri projemize Referans olarak ekliyoruz.
